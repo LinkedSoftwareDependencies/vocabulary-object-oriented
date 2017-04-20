@@ -52,7 +52,7 @@ lcdc:hasComponent a rdf:Property;
     rdfs:range lcdc:Component.
 
 lcdc:hasParameter a rdf:Property;
-    rdfs:label "has component"@en;
+    rdfs:label "has parameter"@en;
     rdfs:comment "The subject component has the object parameter that can be used in its configuration."@en;
     rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabulary/components#>;
     rdfs:subPropertyOf rdf:predicate;
