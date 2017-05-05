@@ -8,13 +8,14 @@
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix sd: <http://www.w3.org/TR/sparql11-service-description/#>.
-@prefix lcdc: <http://linkedsoftwaredependencies.org/vocabulary/components#>.
+@prefix lsdc: <http://linkedsoftwaredependencies.org/vocabulary/components#>.
+@prefix om: <http://linkedsoftwaredependencies.org/vocabulary/object-mapping#>.
 
 # ---------------------------------------- Metadata ----------------------------------------------
 
 <http://linkedsoftwaredependencies.org/vocabulary/components#>
     a owl:Ontology;
-    vann:preferredNamespacePrefix "lcdc";
+    vann:preferredNamespacePrefix "lsdc";
     vann:preferredNamespaceUri "http://linkedsoftwaredependencies.org/vocabulary/components#";
     rdfs:label "Linked Software Dependencies Components."@en;
     rdfs:comment "RDF vocabulary for describing Linked Software Dependency Components."@en;
@@ -25,36 +26,61 @@
 
 # ------------------------------------------ Classes --------------------------------------------
 
-lcdc:Module a rdfs:Class;
+lsdc:Module a rdfs:Class;
     rdfs:label "Module"@en;
     rdfs:comment "A module can have several instantiatable components"@en;
     rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabulary/components#>.
 
-lcdc:Component a rdfs:Class;
+lsdc:Component a rdfs:Class;
     rdfs:label "Component"@en;
-    rdfs:comment "A component is a class that can be instantiated based on parameters."@en;
+    rdfs:comment "A component is an instance or a class that can be instantiated based on parameters."@en;
     rdfs:subClassOf rdfs:Class;
     rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabulary/components#>.
 
-lcdc:Parameter a rdfs:Class;
+lsdc:ComponentConstructable a rdfs:Class;
+    rdfs:label "Constructable Component"@en;
+    rdfs:comment "A constructable component is a class that can be instantiated based on parameters."@en;
+    rdfs:subClassOf lsdc:Component;
+    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabulary/components#>.
+
+lsdc:ComponentConstructableAbstract a rdfs:Class;
+    rdfs:label "Abstract Constructable Component"@en;
+    rdfs:comment "An abstract constructable component is an abstract class that can have subclassed that can be instantiated based on parameters."@en;
+    rdfs:subClassOf lsdc:Component;
+    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabulary/components#>.
+
+lsdc:ComponentInstance a rdfs:Class;
+    rdfs:label "Instance Component"@en;
+    rdfs:comment "An instance component is an instance."@en;
+    rdfs:subClassOf lsdc:Component;
+    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabulary/components#>.
+
+lsdc:Parameter a rdfs:Class;
     rdfs:label "Parameter"@en;
     rdfs:comment "Parameters are used to instantiate components."@en;
-    rdfs:subClassOf rdfs:Property;
+    rdfs:subClassOf rdfs:Property, om:ObjectMap;
     rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabulary/components#>.
 
 # ---------------------------------------- Properties --------------------------------------------
 
-lcdc:hasComponent a rdf:Property;
+lsdc:hasComponent a rdf:Property;
     rdfs:label "has component"@en;
     rdfs:comment "Indicates that the subject module contains the object component that can be instantiated."@en;
     rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabulary/components#>;
-    rdfs:domain lcdc:Module;
-    rdfs:range lcdc:Component.
+    rdfs:domain lsdc:Module;
+    rdfs:range lsdc:Component.
 
-lcdc:hasParameter a rdf:Property;
+lsdc:hasParameter a rdf:Property;
     rdfs:label "has parameter"@en;
     rdfs:comment "The subject component has the object parameter that can be used in its configuration."@en;
     rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabulary/components#>;
     rdfs:subPropertyOf rdf:predicate;
-    rdfs:domain lcdc:Component;
-    rdfs:range lcdc:Parameter.
+    rdfs:domain lsdc:Component;
+    rdfs:range lsdc:Parameter.
+
+lsdc:constructorMapping a rdf:Property;
+    rdfs:label "has constructor object mapping"@en;
+    rdfs:comment "The parameter values of the given component's constructor must be mapped according to the given object mapper"@en;
+    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabulary/components#>;
+    rdfs:domain lsdc:ComponentConstructable;
+    rdfs:range om:ObjectMap.
