@@ -80,7 +80,26 @@ lsdc:hasParameter a rdf:Property;
 
 lsdc:constructorMapping a rdf:Property;
     rdfs:label "has constructor object mapping"@en;
-    rdfs:comment "The parameter values of the given component's constructor must be mapped according to the given object mapper"@en;
+    rdfs:comment "The parameter values of the given component's constructor must be mapped according to the given object mapper."@en;
     rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabulary/components#>;
     rdfs:domain lsdc:ComponentConstructable;
     rdfs:range om:ObjectMap.
+
+lsdc:parameterUnique a rdf:Property;
+    rdfs:label "unique"@en;
+    rdfs:comment "If the parameter should have at most one value."@en;
+    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabulary/components#>;
+    rdfs:domain lsdc:Parameter;
+    rdfs:range xsd:boolean.
+
+lsdc:hasDefaultValue a rdf:Property;
+    rdfs:label "default value"@en;
+    rdfs:comment "The default value of the parameter."@en;
+    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabulary/components#>;
+    rdfs:domain lsdc:Parameter.
+
+lsdc:hasFixedValue a rdf:Property;
+    rdfs:label "fixed value"@en;
+    rdfs:comment "The parameter value that is always present on each component instance."@en;
+    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabulary/components#>;
+    rdfs:domain lsdc:Parameter.
