@@ -105,9 +105,3 @@ lsdc:hasDefaultValue a rdf:Property;
     rdfs:comment "The default value of the parameter."@en;
     rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabulary/components#>;
     rdfs:domain lsdc:Parameter.
-
-lsdc:hasFixedValue a rdf:Property;
-    rdfs:label "fixed value"@en;
-    rdfs:comment "The parameter value that is always present on each component instance."@en;
-    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabulary/components#>;
-    rdfs:domain lsdc:Parameter.
