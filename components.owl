@@ -63,6 +63,12 @@ lsdc:Parameter a rdfs:Class;
     rdfs:subClassOf rdfs:Property, om:ObjectMap;
     rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabulary/components#>.
 
+lsdc:ParameterUnique a rdfs:Class;
+    rdfs:subClassOf lsdc:Parameter;
+    rdfs:label "Unique Parameter"@en;
+    rdfs:comment "Unique parameters are used to instantiate components and can have at most one value."@en;
+    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabulary/components#>.
+
 # ---------------------------------------- Properties --------------------------------------------
 
 lsdc:hasComponent a rdf:Property;
@@ -93,13 +99,6 @@ lsdc:constructorArguments a rdf:Property;
     rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabulary/components#>;
     rdfs:domain lsdc:ComponentConstructable;
     rdfs:range om:ArrayMap.
-
-lsdc:parameterUnique a rdf:Property;
-    rdfs:label "unique"@en;
-    rdfs:comment "If the parameter should have at most one value."@en;
-    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabulary/components#>;
-    rdfs:domain lsdc:Parameter;
-    rdfs:range xsd:boolean.
 
 lsdc:hasDefaultValue a rdf:Property;
     rdfs:label "default value"@en;
