@@ -22,7 +22,7 @@
     dct:title "Linked Software Dependency Components"@en;
     dct:issued "2017-04-08"^^xsd:date;
     dct:modified "2017-04-08"^^xsd:date;
-    dct:creator [foaf:mbox "Ruben.Taelman@UGent.be"; foaf:name "Ruben Taelman"].
+    dct:creator [foaf:mbox "Ruben.Taelman@UGent.be"; foaf:name "Ruben Taelman"; owl:sameAs <http://rubensworks.net/#me>].
 
 # ------------------------------------------ Classes --------------------------------------------
 
