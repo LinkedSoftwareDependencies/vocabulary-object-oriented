@@ -8,6 +8,7 @@
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix sd: <http://www.w3.org/TR/sparql11-service-description/#>.
+@prefix doap: <http://usefulinc.com/ns/doap#>.
 @prefix lsdc: <http://linkedsoftwaredependencies.org/vocabulary/components#>.
 @prefix om: <http://linkedsoftwaredependencies.org/vocabulary/object-mapping#>.
 
@@ -28,6 +29,7 @@
 
 lsdc:Module a rdfs:Class;
     rdfs:label "Module"@en;
+    owl:sameAs doap:Version;
     rdfs:comment "A module can have several instantiatable components"@en;
     rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabulary/components#>.
 
