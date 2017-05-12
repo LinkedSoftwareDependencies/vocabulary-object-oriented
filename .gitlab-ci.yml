@@ -1,0 +1,20 @@
+image: node:latest
+variables:
+    # Replace this variable with your ontology name
+    ONTOLOGY_NAME: "object-oriented"
+
+# Make sure the following variables to your project's secret variables: FTP_LOCATION, FTP_PASSWORD, FTP_USERNAME
+
+cache:
+    paths:
+        - node_modules/
+
+before_script:
+    - "npm install mmlab/owlturtle2http"
+    - "echo \"{ \\\"outpath\\\": \\\"../../\\\", \\\"namespaceBase\\\": \\\"/ns/\\\", \\\"files\\\": { \\\"$ONTOLOGY_NAME\\\": \\\"../../$ONTOLOGY_NAME.owl\\\" }}\" > config.json"
+
+compile:
+    script:
+        - "node node_modules/owlturtle2http/serve -a -i"
+        - "cd $ONTOLOGY_NAME && find . -type f -exec curl -k -u $FTP_USERNAME:$FTP_PASSWORD --ftp-create-dirs -T {} \"$FTP_LOCATION/$ONTOLOGY_NAME/{}\" \\;"
+
