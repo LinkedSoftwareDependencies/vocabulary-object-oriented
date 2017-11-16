@@ -22,7 +22,7 @@
     rdfs:comment "RDF vocabulary for describing Object-Oriented Components."@en;
     dct:title "Object-Oriented Components"@en;
     dct:issued "2017-04-08"^^xsd:date;
-    dct:modified "2017-05-11"^^xsd:date;
+    dct:modified "2017-11-16"^^xsd:date;
     dct:creator <http://rubensworks.net/#me>.
 <http://rubensworks.net/#me> foaf:name "Ruben Taelman".
 
@@ -64,6 +64,11 @@ oo:Parameter a rdfs:Class;
     rdfs:subClassOf rdfs:Property, om:ObjectMapping;
     rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>.
 
+oo:DefaultScoped a rdfs:Class;
+    rdfs:label "Scoped defult value"@en;
+    rdfs:comment "A default value that only applies in a certain scope."@en;
+    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>.
+
 # ---------------------------------------- Properties --------------------------------------------
 
 oo:component a rdf:Property;
@@ -99,6 +104,26 @@ oo:defaultValue a rdf:Property;
     rdfs:comment "The default value of the parameter."@en;
     rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>;
     rdfs:domain oo:Parameter.
+
+oo:defaultScoped a rdf:Property;
+    rdfs:label "default scoped"@en;
+    rdfs:comment "A default scope of the parameter, which provides a default value in the given scope."@en;
+    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>;
+    rdfs:domain oo:Parameter;
+    rdfs:range oo:DefaultScoped.
+
+oo:defaultScope a rdf:Property;
+    rdfs:label "default scope"@en;
+    rdfs:comment "The component scope of a default scope."@en;
+    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>;
+    rdfs:domain oo:DefaultScoped;
+    rdfs:range oo:Component.
+
+oo:defaultScopedValue a rdf:Property;
+    rdfs:label "default scoped value"@en;
+    rdfs:comment "The default value of a parameter in this scope."@en;
+    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>;
+    rdfs:domain oo:DefaultScoped.
 
 oo:uniqueValue a rdf:Property;
     rdfs:label "default value"@en;
