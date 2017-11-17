@@ -22,7 +22,7 @@
     rdfs:comment "RDF vocabulary for describing Object-Oriented Components."@en;
     dct:title "Object-Oriented Components"@en;
     dct:issued "2017-04-08"^^xsd:date;
-    dct:modified "2017-11-16"^^xsd:date;
+    dct:modified "2017-11-17"^^xsd:date;
     dct:creator <http://rubensworks.net/#me>.
 <http://rubensworks.net/#me> foaf:name "Ruben Taelman".
 
@@ -98,6 +98,13 @@ oo:constructorArguments a rdf:Property;
     rdfs:label "has constructor arguments"@en;
     rdfs:comment "The parameter values of the given component's constructor must be mapped according to the given object mapper."@en;
     rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>.
+
+oo:required a rdf:Property;
+    rdfs:label "required"@en;
+    rdfs:comment "Indicates that this parameter must have a value, default is false."@en;
+    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>;
+    rdfs:domain oo:Parameter;
+    rdfs:range xsd:boolean.
 
 oo:defaultValue a rdf:Property;
     rdfs:label "default value"@en;
