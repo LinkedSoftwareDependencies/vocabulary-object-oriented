@@ -139,6 +139,13 @@ oo:uniqueValue a rdf:Property;
     rdfs:domain oo:Parameter;
     rdfs:range xsd:boolean.
 
+oo:lazyValue a rdf:Property;
+    rdfs:label "lazy value"@en;
+    rdfs:comment "Indicate that the parameter values must be produced lazily."@en;
+    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>;
+    rdfs:domain oo:Parameter;
+    rdfs:range xsd:boolean.
+
 oo:componentPath a rdf:Property;
     rdfs:label "class path"@en;
     rdfs:comment "The path to a component within a module."@en;
