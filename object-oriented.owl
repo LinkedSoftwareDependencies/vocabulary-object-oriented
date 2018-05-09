@@ -9,15 +9,15 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/>.
 @prefix sd: <http://www.w3.org/TR/sparql11-service-description/#>.
 @prefix doap: <http://usefulinc.com/ns/doap#>.
-@prefix oo: <http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>.
-@prefix om: <http://linkedsoftwaredependencies.org/vocabularies/object-mapping#>.
+@prefix oo: <https://w3id.org/lsd/vocabularies/object-oriented#>.
+@prefix om: <https://w3id.org/lsd/vocabularies/object-mapping#>.
 
 # ---------------------------------------- Metadata ----------------------------------------------
 
-<http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>
+<https://w3id.org/lsd/vocabularies/object-oriented#>
     a owl:Ontology;
     vann:preferredNamespacePrefix "oo";
-    vann:preferredNamespaceUri "http://linkedsoftwaredependencies.org/vocabularies/object-oriented#";
+    vann:preferredNamespaceUri "https://w3id.org/lsd/vocabularies/object-oriented#";
     rdfs:label "Object-Oriented Components."@en;
     rdfs:comment "RDF vocabulary for describing Object-Oriented Components."@en;
     dct:title "Object-Oriented Components"@en;
@@ -32,56 +32,56 @@ oo:Module a rdfs:Class;
     rdfs:label "Module"@en;
     owl:sameAs doap:Version;
     rdfs:comment "A module can have several components"@en;
-    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>.
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>.
 
 oo:Component a rdfs:Class;
     rdfs:label "Component"@en;
     rdfs:comment "A component is an instance or a class that can be instantiated based on parameters."@en;
     rdfs:subClassOf rdfs:Class;
-    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>.
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>.
 
 oo:Class a rdfs:Class;
     rdfs:label "Class"@en;
     rdfs:comment "A class that can be instantiated based on parameters. All subtypes of classes are Instances."@en;
     rdfs:subClassOf oo:Component;
-    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>.
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>.
 
 oo:AbstractClass a rdfs:Class;
     rdfs:label "Abstract Class"@en;
     rdfs:comment "An abstract class that can have subclasses that can be instantiated based on parameters."@en;
     rdfs:subClassOf oo:Class;
-    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>.
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>.
 
 oo:Instance a rdfs:Class;
     rdfs:label "Instance"@en;
     rdfs:comment "An instance is an instantiation of a class."@en;
     rdfs:subClassOf oo:Component;
-    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>.
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>.
 
 oo:Parameter a rdfs:Class;
     rdfs:label "Parameter"@en;
     rdfs:comment "Parameters are used to instantiate components."@en;
     rdfs:subClassOf rdfs:Property, om:ObjectMapping;
-    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>.
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>.
 
 oo:DefaultScoped a rdfs:Class;
     rdfs:label "Scoped defult value"@en;
     rdfs:comment "A default value that only applies in a certain scope."@en;
-    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>.
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>.
 
 # ---------------------------------------- Properties --------------------------------------------
 
 oo:component a rdf:Property;
     rdfs:label "has component"@en;
     rdfs:comment "Indicates that the subject module contains the object component that can be instantiated."@en;
-    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>;
     rdfs:domain oo:Module;
     rdfs:range oo:Component.
 
 oo:parameter a rdf:Property;
     rdfs:label "has parameter"@en;
     rdfs:comment "The subject component has the object parameter that can be used in its configuration."@en;
-    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>;
     rdfs:subPropertyOf rdf:predicate;
     rdfs:domain oo:Class;
     rdfs:range oo:Parameter.
@@ -89,7 +89,7 @@ oo:parameter a rdf:Property;
 oo:arguments a rdf:Property;
     rdfs:label "has arguments"@en;
     rdfs:comment "The given function arguments must be mapped according to the given array mapping."@en;
-    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>;
     rdfs:domain oo:Class;
     rdfs:range om:ArrayMapping.
 
@@ -97,52 +97,52 @@ oo:constructorArguments a rdf:Property;
     rdfs:subPropertyOf oo:arguments;
     rdfs:label "has constructor arguments"@en;
     rdfs:comment "The parameter values of the given component's constructor must be mapped according to the given object mapper."@en;
-    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>.
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>.
 
 oo:required a rdf:Property;
     rdfs:label "required"@en;
     rdfs:comment "Indicates that this parameter must have a value, default is false."@en;
-    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>;
     rdfs:domain oo:Parameter;
     rdfs:range xsd:boolean.
 
 oo:defaultValue a rdf:Property;
     rdfs:label "default value"@en;
     rdfs:comment "The default value of the parameter."@en;
-    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>;
     rdfs:domain oo:Parameter.
 
 oo:defaultScoped a rdf:Property;
     rdfs:label "default scoped"@en;
     rdfs:comment "A default scope of the parameter, which provides a default value in the given scope."@en;
-    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>;
     rdfs:domain oo:Parameter;
     rdfs:range oo:DefaultScoped.
 
 oo:defaultScope a rdf:Property;
     rdfs:label "default scope"@en;
     rdfs:comment "The component scope of a default scope."@en;
-    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>;
     rdfs:domain oo:DefaultScoped;
     rdfs:range oo:Component.
 
 oo:defaultScopedValue a rdf:Property;
     rdfs:label "default scoped value"@en;
     rdfs:comment "The default value of a parameter in this scope."@en;
-    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>;
     rdfs:domain oo:DefaultScoped.
 
 oo:uniqueValue a rdf:Property;
     rdfs:label "default value"@en;
     rdfs:comment "Indicate that the parameter can have at most one value."@en;
-    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>;
     rdfs:domain oo:Parameter;
     rdfs:range xsd:boolean.
 
 oo:lazyValue a rdf:Property;
     rdfs:label "lazy value"@en;
     rdfs:comment "Indicate that the parameter values must be produced lazily."@en;
-    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>;
     rdfs:domain oo:Parameter;
     rdfs:range xsd:boolean.
 
@@ -150,6 +150,6 @@ oo:componentPath a rdf:Property;
     rdfs:label "class path"@en;
     rdfs:comment "The path to a component within a module."@en;
     rdfs:comment "Example value: 'my.package.name.Class'"@en;
-    rdfs:isDefinedBy <http://linkedsoftwaredependencies.org/vocabularies/object-oriented#>;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>;
     rdfs:domain oo:Component;
     rdfs:range xsd:string.

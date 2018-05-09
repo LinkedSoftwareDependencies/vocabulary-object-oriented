@@ -9,7 +9,7 @@ Creating a module with one component, and instantiating it with the `hello:say` 
 ```json
 {
   "@context": {
-    "@vocab": "http://linkedsoftwaredependencies.org/vocabulary/components#",
+    "@vocab": "https://w3id.org/lsd/vocabularies/object-oriented#",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "fn": "https://w3id.org/function/ontology#",
