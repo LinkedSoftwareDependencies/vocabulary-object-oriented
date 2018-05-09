@@ -1,4 +1,4 @@
-image: node:latest
+image: node:8
 variables:
     # Replace this variable with your ontology name
     ONTOLOGY_NAME: "object-oriented"
