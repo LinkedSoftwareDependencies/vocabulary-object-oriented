@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/132733125.svg)](https://zenodo.org/badge/latestdoi/132733125)
+
 Linked Software Dependencies Components vocabulary for describing modules and components.
 
 ## Example
