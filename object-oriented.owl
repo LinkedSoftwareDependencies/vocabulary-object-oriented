@@ -153,3 +153,11 @@ oo:componentPath a rdf:Property;
     rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>;
     rdfs:domain oo:Component;
     rdfs:range xsd:string.
+
+oo:componentNoConstructor a rdf:Property;
+    rdfs:label "no consyructor"@en;
+    rdfs:comment "The component indicated by the current path requires no constructor call."@en;
+    rdfs:comment "Defaults to false"@en;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>;
+    rdfs:domain oo:Component;
+    rdfs:range xsd:boolean.
