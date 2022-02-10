@@ -22,9 +22,9 @@
     rdfs:comment "RDF vocabulary for describing Object-Oriented Components."@en;
     dct:title "Object-Oriented Components"@en;
     dct:issued "2017-04-08"^^xsd:date;
-    dct:modified "2017-11-17"^^xsd:date;
-    dct:creator <http://rubensworks.net/#me>.
-<http://rubensworks.net/#me> foaf:name "Ruben Taelman".
+    dct:modified "2022-02-10"^^xsd:date;
+    dct:creator <https://rubensworks.net/#me>.
+<https://rubensworks.net/#me> foaf:name "Ruben Taelman".
 
 # ------------------------------------------ Classes --------------------------------------------
 
@@ -64,9 +64,105 @@ oo:Parameter a rdfs:Class;
     rdfs:subClassOf rdfs:Property, om:ObjectMapping;
     rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>.
 
+oo:MemberField a rdfs:Class;
+    rdfs:label "Member Field"@en;
+    rdfs:comment "Field that is a member of a component."@en;
+    rdfs:subClassOf rdfs:Property;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>.
+
+oo:GenericTypeParameter a rdfs:Class;
+    rdfs:label "Generic Type Parameter"@en;
+    rdfs:comment "Generic type parameter on a component."@en;
+    rdfs:subClassOf rdfs:Property;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>.
+
 oo:DefaultScoped a rdfs:Class;
     rdfs:label "Scoped defult value"@en;
     rdfs:comment "A default value that only applies in a certain scope."@en;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>.
+
+oo:ParameterRange a rdfs:Class;
+    rdfs:label "Parameter Range"@en;
+    rdfs:comment "Represents the allowed value range of a parameter."@en;
+    rdfs:subClassOf rdfs:Class;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>.
+
+oo:ParameterRangeUndefined a rdfs:Class;
+    rdfs:label "Undefined Parameter Range"@en;
+    rdfs:comment "A parameter range that accepts undefined values."@en;
+    rdfs:subClassOf oo:ParameterRange;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>.
+
+oo:ParameterRangeWildcard a rdfs:Class;
+    rdfs:label "Wildcard Parameter Range"@en;
+    rdfs:comment "A parameter range that accepts all values."@en;
+    rdfs:subClassOf oo:ParameterRange;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>.
+
+oo:ParameterRangeArray a rdfs:Class;
+    rdfs:label "Array Parameter Range"@en;
+    rdfs:comment "A parameter range that accepts an array of values."@en;
+    rdfs:subClassOf oo:ParameterRange;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>.
+
+oo:ParameterRangeRest a rdfs:Class;
+    rdfs:label "Rest Parameter Range"@en;
+    rdfs:comment "A parameter range that represents the rest operation within a tuple range."@en;
+    rdfs:subClassOf oo:ParameterRange;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>.
+
+oo:ParameterRangeKeyof a rdfs:Class;
+    rdfs:label "Key Of Parameter Range"@en;
+    rdfs:comment "A parameter range that accepts a key of a component."@en;
+    rdfs:subClassOf oo:ParameterRange;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>.
+
+oo:ParameterRangeLiteral a rdfs:Class;
+    rdfs:label "Literal Parameter Range"@en;
+    rdfs:comment "A parameter range that accepts a literal value."@en;
+    rdfs:subClassOf oo:ParameterRange;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>.
+
+oo:ParameterRangeUnion a rdfs:Class;
+    rdfs:label "Union Parameter Range"@en;
+    rdfs:comment "A parameter range that accepts the union of parameter ranges."@en;
+    rdfs:subClassOf oo:ParameterRange;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>.
+
+oo:ParameterRangeIntersection a rdfs:Class;
+    rdfs:label "Intersection Parameter Range"@en;
+    rdfs:comment "A parameter range that accepts the intersection of parameter ranges."@en;
+    rdfs:subClassOf oo:ParameterRange;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>.
+
+oo:ParameterRangeCollectEntries a rdfs:Class;
+    rdfs:label "Collect Entries Parameter Range"@en;
+    rdfs:comment "A parameter range that represents entry collection."@en;
+    rdfs:subClassOf oo:ParameterRange;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>.
+
+oo:ParameterRangeGenericComponent a rdfs:Class;
+    rdfs:label "Generic Component Parameter Range"@en;
+    rdfs:comment "A parameter range that refers to a component with generic instantiation."@en;
+    rdfs:subClassOf oo:ParameterRange;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>.
+
+oo:ParameterRangeGenericTypeReference a rdfs:Class;
+    rdfs:label "Generic Type Parameter Range"@en;
+    rdfs:comment "A parameter range that refers to a generic type."@en;
+    rdfs:subClassOf oo:ParameterRange;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>.
+
+oo:ParameterRangeIndexed a rdfs:Class;
+    rdfs:label "Indexed Parameter Range"@en;
+    rdfs:comment "A parameter range that refers to an indexed type."@en;
+    rdfs:subClassOf oo:ParameterRange;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>.
+
+oo:GenericComponentExtension a rdfs:Class;
+    rdfs:label "Generic Component Extension"@en;
+    rdfs:comment "An extension range for a component that refers to a generic component with generic type instantiations."@en;
+    rdfs:subClassOf rdfs:Class;
     rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>.
 
 # ---------------------------------------- Properties --------------------------------------------
@@ -85,6 +181,29 @@ oo:parameter a rdf:Property;
     rdfs:subPropertyOf rdf:predicate;
     rdfs:domain oo:Class;
     rdfs:range oo:Parameter.
+
+oo:memberField a rdf:Property;
+    rdfs:label "has member"@en;
+    rdfs:comment "The subject component has the object field as member."@en;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>;
+    rdfs:subPropertyOf rdf:predicate;
+    rdfs:domain oo:Class;
+    rdfs:range oo:MemberField.
+
+oo:memberFieldName a rdf:Property;
+    rdfs:label "member field name"@en;
+    rdfs:comment "The name of the member field."@en;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>;
+    rdfs:domain oo:MemberField;
+    rdfs:range xsd:string.
+
+oo:genericTypeParameter a rdf:Property;
+    rdfs:label "has generic type parameter"@en;
+    rdfs:comment "The subject component has the object generic type parameter that can be used in its configuration."@en;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>;
+    rdfs:subPropertyOf rdf:predicate;
+    rdfs:domain oo:Class;
+    rdfs:range oo:GenericTypeParameter.
 
 oo:arguments a rdf:Property;
     rdfs:label "has arguments"@en;
@@ -146,6 +265,17 @@ oo:lazyValue a rdf:Property;
     rdfs:domain oo:Parameter;
     rdfs:range xsd:boolean.
 
+oo:hasFixedValue a rdf:Property;
+    rdfs:label "has fixed value"@en;
+    rdfs:comment "The fixed value of the parameter."@en;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>;
+    rdfs:domain oo:Parameter.
+
+oo:isUndefined a rdf:Property;
+    rdfs:label "is undefined"@en;
+    rdfs:comment "The fixed value of the parameter."@en;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>.
+
 oo:componentPath a rdf:Property;
     rdfs:label "class path"@en;
     rdfs:comment "The path to a component within a module."@en;
@@ -161,3 +291,64 @@ oo:componentNoConstructor a rdf:Property;
     rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>;
     rdfs:domain oo:Component;
     rdfs:range xsd:boolean.
+
+oo:parameterRangeValue a rdf:Property;
+    rdfs:label "parameter range value"@en;
+    rdfs:comment "The value of a parameter range."@en;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>;
+    rdfs:domain oo:ParameterRangeArray, oo:ParameterRangeRest, oo:ParameterRangeKeyof, oo:ParameterRangeLiteral.
+
+oo:parameterRangeElement a rdf:Property;
+    rdfs:label "parameter range element"@en;
+    rdfs:comment "An element of a parameter range."@en;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>;
+    rdfs:domain oo:ParameterRangeUnion, oo:ParameterRangeIntersection;
+    rdfs:range oo:ParameterRange.
+
+oo:parameterRangeCollectEntriesParameter a rdf:Property;
+    rdfs:label "collect entries parameter"@en;
+    rdfs:comment "A parameter a collect entries parameter range."@en;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>;
+    rdfs:domain oo:ParameterRangeCollectEntries.
+
+oo:genericTypeInstancesComponentScope a rdf:Property;
+    rdfs:label "generic component"@en;
+    rdfs:comment "A generic component of a generic component parameter range."@en;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>;
+    rdfs:domain oo:ParameterRangeGenericComponent;
+    rdfs:range oo:Component.
+
+oo:genericTypeInstance a rdf:Property;
+    rdfs:label "generic type instance"@en;
+    rdfs:comment "Instantiation of a generic type."@en;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>;
+    rdfs:domain oo:ParameterRangeGenericComponent, oo:GenericComponentExtension;
+    rdfs:range oo:ParameterRange.
+
+oo:parameterRangeGenericType a rdf:Property;
+    rdfs:label "generic type"@en;
+    rdfs:comment "Reference to a generic type parameter."@en;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>;
+    rdfs:domain oo:ParameterRangeGenericTypeReference;
+    rdfs:range oo:GenericTypeParameter.
+
+oo:parameterRangeGenericBinding a rdf:Property;
+    rdfs:label "generic type binding"@en;
+    rdfs:comment "The binding of a generic type."@en;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>;
+    rdfs:domain oo:ParameterRangeGenericTypeReference;
+    rdfs:range oo:ParameterRange.
+
+oo:parameterRangeIndexedObject a rdf:Property;
+    rdfs:label "indexed object"@en;
+    rdfs:comment "The object of an indexed parameter range."@en;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>;
+    rdfs:domain oo:ParameterRangeIndexed;
+    rdfs:range oo:ParameterRange.
+
+oo:parameterRangeIndexedIndex a rdf:Property;
+    rdfs:label "indexed index"@en;
+    rdfs:comment "The index of an indexed parameter range."@en;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>;
+    rdfs:domain oo:ParameterRangeIndexed;
+    rdfs:range oo:ParameterRange.
