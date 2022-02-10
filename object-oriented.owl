@@ -135,6 +135,12 @@ oo:ParameterRangeIntersection a rdfs:Class;
     rdfs:subClassOf oo:ParameterRange;
     rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>.
 
+oo:ParameterRangeTuple a rdfs:Class;
+    rdfs:label "Tuple Parameter Range"@en;
+    rdfs:comment "A parameter range that accepts a tuple of parameter ranges."@en;
+    rdfs:subClassOf oo:ParameterRange;
+    rdfs:isDefinedBy <https://w3id.org/lsd/vocabularies/object-oriented#>.
+
 oo:ParameterRangeCollectEntries a rdfs:Class;
     rdfs:label "Collect Entries Parameter Range"@en;
     rdfs:comment "A parameter range that represents entry collection."@en;
